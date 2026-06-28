@@ -1,0 +1,1397 @@
+/* ===========================================
+   Happy Birthday Website V2.0
+   Part 1
+   Created by: Chaithanya (Chotu)
+=========================================== */
+
+/* ============================= */
+/* Google Font */
+/* ============================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ============================= */
+/* Reset */
+/* ============================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Poppins',sans-serif;
+    overflow:hidden;
+    background:#050816;
+    color:#ffffff;
+
+}
+
+/* ============================= */
+/* Scene */
+/* ============================= */
+
+.scene{
+
+    position:absolute;
+    inset:0;
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:1s;
+
+    padding:30px;
+
+}
+
+.scene.active{
+
+    opacity:1;
+    visibility:visible;
+
+}
+
+/* ============================= */
+/* Background */
+/* ============================= */
+
+#stars,
+#petals,
+#hearts,
+#sparkles,
+#balloons{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100%;
+    height:100%;
+
+    pointer-events:none;
+
+}
+
+#stars{
+
+    background:
+    radial-gradient(circle,#ffffff 1px,transparent 1px);
+
+    background-size:45px 45px;
+
+    opacity:.35;
+
+    animation:starsMove 90s linear infinite;
+
+}
+
+@keyframes starsMove{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(-600px);
+
+    }
+
+}
+
+/* ============================= */
+/* Petals */
+/* ============================= */
+
+#petals::before{
+
+    content:"🌸 🌸 🌸 🌸 🌸 🌸 🌸 🌸";
+
+    position:absolute;
+
+    width:100%;
+
+    font-size:28px;
+
+    animation:petals 20s linear infinite;
+
+    opacity:.45;
+
+}
+
+@keyframes petals{
+
+    from{
+
+        transform:translateY(-120px);
+
+    }
+
+    to{
+
+        transform:translateY(110vh);
+
+    }
+
+}
+
+/* ============================= */
+/* Hearts */
+/* ============================= */
+
+#hearts::before{
+
+    content:"❤️ ❤️ ❤️ ❤️ ❤️";
+
+    position:absolute;
+
+    width:100%;
+
+    font-size:18px;
+
+    animation:hearts 18s linear infinite;
+
+    opacity:.35;
+
+}
+
+@keyframes hearts{
+
+    from{
+
+        transform:translateY(100vh);
+
+    }
+
+    to{
+
+        transform:translateY(-120px);
+
+    }
+
+}
+
+/* ============================= */
+/* Sparkles */
+/* ============================= */
+
+#sparkles{
+
+    background-image:
+
+    radial-gradient(#ffd700 1px,transparent 1px);
+
+    background-size:90px 90px;
+
+    opacity:.25;
+
+    animation:sparkle 10s linear infinite;
+
+}
+
+@keyframes sparkle{
+
+    50%{
+
+        opacity:.6;
+
+    }
+
+}
+
+/* ============================= */
+/* Balloons */
+/* ============================= */
+
+#balloons::before{
+
+    content:"🎈 🎈 🎈 🎈 🎈";
+
+    position:absolute;
+
+    width:100%;
+
+    bottom:-150px;
+
+    font-size:40px;
+
+    animation:balloons 22s linear infinite;
+
+}
+
+@keyframes balloons{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(-130vh);
+
+    }
+
+}
+
+/* ============================= */
+/* Loading Screen */
+/* ============================= */
+
+#loading-screen{
+
+    background:#050816;
+
+}
+
+.loading-content{
+
+    text-align:center;
+
+}
+
+.loading-content h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:70px;
+
+    color:#ffd700;
+
+    margin-bottom:20px;
+
+}
+
+.loading-content p{
+
+    font-size:22px;
+
+    color:#ffffff;
+
+}
+
+.loader{
+
+    width:70px;
+    height:70px;
+
+    border-radius:50%;
+
+    border:6px solid rgba(255,255,255,.2);
+
+    border-top:6px solid #ff4f9a;
+
+    margin:40px auto;
+
+    animation:spin 1s linear infinite;
+
+}
+
+@keyframes spin{
+
+    from{
+
+        transform:rotate(0);
+
+    }
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+/* ============================= */
+/* Intro Screen */
+/* ============================= */
+
+.intro-card{
+
+    width:90%;
+    max-width:700px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.2);
+
+    border-radius:25px;
+
+    padding:60px;
+
+    text-align:center;
+
+    box-shadow:0 0 45px rgba(255,79,154,.3);
+
+}
+
+.gift-icon{
+
+    font-size:70px;
+
+    margin-bottom:25px;
+
+}
+
+.intro-card h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:60px;
+
+    color:#ffd700;
+
+    margin-bottom:25px;
+
+}
+
+.intro-card p{
+
+    font-size:24px;
+
+    margin:10px 0;
+
+}
+
+.intro-card h2{
+
+    font-size:50px;
+
+    margin-top:25px;
+
+}
+
+/* ============================= */
+/* Password Screen */
+/* ============================= */
+
+.glass-card{
+
+    width:90%;
+    max-width:650px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.25);
+
+    border-radius:25px;
+
+    padding:50px;
+
+    text-align:center;
+
+    box-shadow:0 0 50px rgba(138,43,226,.35);
+
+}
+
+.glass-card h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:58px;
+
+    color:#ffd700;
+
+}
+
+.glass-card h2{
+
+    margin-top:15px;
+
+    font-size:32px;
+
+}
+
+.instruction{
+
+    margin:25px 0;
+
+    font-size:18px;
+
+    color:#dddddd;
+
+}
+
+.date-box{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:30px;
+
+}
+
+.date-box select{
+
+    width:180px;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:17px;
+
+    outline:none;
+
+}
+
+#unlockBtn{
+
+    padding:16px 45px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#ff4f9a;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+#unlockBtn:hover{
+
+    transform:scale(1.08);
+
+    background:#ff2d7d;
+
+    box-shadow:0 0 30px #ff4f9a;
+
+}
+
+#passwordMessage{
+
+    margin-top:25px;
+
+    font-size:18px;
+
+    color:#ffd700;
+
+}
+/* ===========================================
+   PART 2
+   Birthday Intro
+   Letter
+   Memories
+   Gallery
+   Lightbox
+===========================================*/
+
+/* ============================= */
+/* Birthday Intro */
+/* ============================= */
+
+#birthday-screen{
+
+    text-align:center;
+
+}
+
+.birthday-content{
+
+    width:90%;
+    max-width:900px;
+
+}
+
+.birthday-content h3{
+
+    font-size:40px;
+    color:#ffd700;
+    margin-bottom:20px;
+
+}
+
+.birthday-content h1{
+
+    font-family:'Great Vibes',cursive;
+    font-size:95px;
+    color:#ffffff;
+    text-shadow:0 0 25px #ff4f9a;
+
+}
+
+.birthday-content h2{
+
+    margin-top:20px;
+    font-size:45px;
+    color:#ff4f9a;
+
+}
+
+#startBtn{
+
+    margin-top:50px;
+
+    padding:18px 55px;
+
+    border:none;
+
+    border-radius:50px;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    background:linear-gradient(45deg,#ff4f9a,#8A2BE2);
+
+    transition:.4s;
+
+}
+
+#startBtn:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:0 0 35px #ff4f9a;
+
+}
+
+/* ============================= */
+/* Letter */
+/* ============================= */
+
+#letter-screen{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+.letter-card{
+
+    width:90%;
+    max-width:900px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border-radius:25px;
+
+    padding:60px;
+
+    border:1px solid rgba(255,255,255,.2);
+
+    box-shadow:0 0 40px rgba(255,255,255,.15);
+
+}
+
+.letter-card h1{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:60px;
+
+    color:#ffd700;
+
+}
+
+#letterContent{
+
+    font-size:22px;
+
+    line-height:2;
+
+    text-align:left;
+
+    color:#ffffff;
+
+    white-space:pre-line;
+
+}
+
+/* ============================= */
+/* Memories */
+/* ============================= */
+
+#memories-screen{
+
+    text-align:center;
+
+}
+
+.memory-content{
+
+    width:95%;
+    max-width:1200px;
+
+}
+
+.memory-content h1{
+
+    font-family:'Great Vibes',cursive;
+
+    font-size:65px;
+
+    color:#ffd700;
+
+}
+
+.memory-content p{
+
+    margin:20px 0;
+
+    font-size:22px;
+
+}
+
+#memoryBtn{
+
+    padding:16px 45px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#ff4f9a;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+#memoryBtn:hover{
+
+    transform:scale(1.08);
+
+    box-shadow:0 0 30px #ff4f9a;
+
+}
+
+/* ============================= */
+/* Slideshow */
+/* ============================= */
+
+#slideshow{
+
+    width:100%;
+
+    height:520px;
+
+    margin-top:45px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+#slideshow img{
+
+    width:450px;
+
+    height:500px;
+
+    object-fit:contain;
+
+    border-radius:20px;
+
+    background:#111827;
+
+    padding:10px;
+
+    box-shadow:0 0 40px rgba(255,255,255,.2);
+
+    animation:zoomPhoto 2s;
+
+}
+
+@keyframes zoomPhoto{
+
+    from{
+
+        transform:scale(.7);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+/* ============================= */
+/* Gallery */
+/* ============================= */
+
+#gallery{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:22px;
+
+    margin-top:60px;
+
+}
+
+#gallery img{
+
+    width:100%;
+
+    height:320px;
+
+    object-fit:contain;
+
+    background:#111827;
+
+    border-radius:20px;
+
+    padding:8px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+#gallery img:hover{
+
+    transform:translateY(-10px) scale(1.05);
+
+    box-shadow:0 0 30px #ff4f9a;
+
+}
+
+/* ============================= */
+/* Lightbox */
+/* ============================= */
+
+#lightbox{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.95);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:99999;
+
+}
+
+#lightbox img{
+
+    width:90%;
+
+    max-width:900px;
+
+    max-height:90vh;
+
+    object-fit:contain;
+
+    border-radius:20px;
+
+    box-shadow:0 0 45px rgba(255,255,255,.25);
+
+}
+
+#closeLightbox{
+
+    position:absolute;
+
+    top:25px;
+
+    right:45px;
+
+    font-size:55px;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#closeLightbox:hover{
+
+    transform:rotate(90deg);
+
+    color:#ff4f9a;
+
+}
+/* ===========================================
+   PART 3
+   Cake • Gift • Final Screen
+   Fireworks • Responsive • Utilities
+===========================================*/
+
+/* ============================= */
+/* Cake Screen */
+/* ============================= */
+
+#cake-screen{
+    text-align:center;
+}
+
+.cake-content{
+    width:90%;
+    max-width:900px;
+}
+
+.cake-content h1{
+    font-family:'Great Vibes',cursive;
+    font-size:65px;
+    color:#FFD700;
+}
+
+.cake-content p{
+    margin:20px 0 40px;
+    font-size:22px;
+}
+
+/* Cake */
+
+#cake{
+    position:relative;
+    width:260px;
+    height:230px;
+    margin:40px auto;
+}
+
+/* Bottom Layer */
+
+#cake::before{
+    content:"";
+    position:absolute;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:260px;
+    height:90px;
+    background:#ffb6c1;
+    border-radius:20px;
+    box-shadow:0 0 30px rgba(255,182,193,.5);
+}
+
+/* Top Layer */
+
+#cake::after{
+    content:"";
+    position:absolute;
+    bottom:85px;
+    left:50%;
+    transform:translateX(-50%);
+    width:190px;
+    height:70px;
+    background:#fff0f5;
+    border-radius:18px;
+    box-shadow:0 0 20px rgba(255,255,255,.3);
+}
+
+#smoke{
+    height:60px;
+    margin-bottom:20px;
+}
+
+#blowBtn{
+    margin-top:35px;
+    padding:16px 45px;
+    border:none;
+    border-radius:50px;
+    background:#ff4f9a;
+    color:#fff;
+    font-size:18px;
+    cursor:pointer;
+    transition:.4s;
+}
+
+#blowBtn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 30px #ff4f9a;
+}
+
+/* ============================= */
+/* Gift */
+/* ============================= */
+
+#gift-screen{
+    text-align:center;
+}
+
+.gift-content{
+    width:90%;
+    max-width:850px;
+}
+
+.gift-content h1{
+    font-family:'Great Vibes',cursive;
+    font-size:65px;
+    color:#FFD700;
+}
+
+.gift-content p{
+    margin:20px 0 35px;
+    font-size:22px;
+}
+
+/* Gift Box */
+
+#giftBox{
+    width:200px;
+    height:200px;
+    margin:40px auto;
+    border-radius:20px;
+    background:linear-gradient(45deg,#ff4f9a,#8A2BE2);
+    box-shadow:0 0 40px rgba(255,79,154,.4);
+    transition:.4s;
+    cursor:pointer;
+}
+
+#giftBox:hover{
+    transform:rotate(-5deg) scale(1.05);
+}
+
+#giftBtn{
+    padding:16px 45px;
+    border:none;
+    border-radius:50px;
+    background:#ff4f9a;
+    color:#fff;
+    font-size:18px;
+    cursor:pointer;
+    transition:.4s;
+}
+
+#giftBtn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 30px #ff4f9a;
+}
+
+/* ============================= */
+/* Final Screen */
+/* ============================= */
+
+#final-screen{
+    text-align:center;
+}
+
+.final-content{
+    width:90%;
+    max-width:900px;
+}
+
+.final-content h1{
+    font-family:'Great Vibes',cursive;
+    font-size:75px;
+    color:#FFD700;
+}
+
+.final-content h2{
+    margin:20px 0;
+    font-size:38px;
+    color:#ff4f9a;
+}
+
+#finalMessage{
+    margin-top:40px;
+    font-size:24px;
+    line-height:2;
+    white-space:pre-line;
+}
+
+/* ============================= */
+/* Fireworks Canvas */
+/* ============================= */
+
+#fireworks{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:100;
+}
+
+/* ============================= */
+/* Confetti */
+/* ============================= */
+
+#confetti{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+
+/* ============================= */
+/* Buttons */
+/* ============================= */
+
+button{
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+}
+
+button:hover{
+    filter:brightness(1.08);
+}
+
+/* ============================= */
+/* Scrollbar */
+/* ============================= */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#111827;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#ff4f9a;
+    border-radius:20px;
+}
+
+/* ============================= */
+/* Responsive */
+/* ============================= */
+
+@media(max-width:992px){
+
+    .intro-card,
+    .glass-card,
+    .letter-card{
+        padding:35px;
+    }
+
+    .birthday-content h1{
+        font-size:65px;
+    }
+
+    .birthday-content h2{
+        font-size:35px;
+    }
+
+    #slideshow{
+        height:auto;
+    }
+
+    #slideshow img{
+        width:90%;
+        height:auto;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .loading-content h1{
+        font-size:50px;
+    }
+
+    .intro-card h1,
+    .glass-card h1,
+    .memory-content h1,
+    .gift-content h1,
+    .cake-content h1,
+    .letter-card h1,
+    .final-content h1{
+        font-size:45px;
+    }
+
+    .birthday-content h1{
+        font-size:50px;
+    }
+
+    .birthday-content h2{
+        font-size:28px;
+    }
+
+    .intro-card p,
+    .instruction,
+    .memory-content p,
+    .cake-content p,
+    .gift-content p,
+    #letterContent,
+    #finalMessage{
+        font-size:18px;
+    }
+
+    .date-box{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .date-box select{
+        width:100%;
+        max-width:280px;
+    }
+
+    #gallery{
+        grid-template-columns:1fr;
+    }
+
+    #gallery img{
+        height:auto;
+    }
+
+}
+
+@media(max-width:480px){
+
+    .scene{
+        padding:20px;
+    }
+
+    .loading-content h1{
+        font-size:42px;
+    }
+
+    .birthday-content h1{
+        font-size:40px;
+    }
+
+    .birthday-content h2{
+        font-size:24px;
+    }
+
+    .intro-card,
+    .glass-card,
+    .letter-card{
+        padding:25px;
+    }
+
+    button{
+        width:100%;
+    }
+
+}
+
+/* ============================= */
+/* Fade Animation */
+/* ============================= */
+
+.fade-in{
+    animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* ============================= */
+/* Floating Animation */
+/* ============================= */
+
+.float{
+    animation:floating 3s ease-in-out infinite;
+}
+
+@keyframes floating{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+}
+
+/* ============================= */
+/* Glow Animation */
+/* ============================= */
+
+.glow{
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+
+    from{
+        text-shadow:0 0 10px #ff4f9a;
+    }
+
+    to{
+        text-shadow:
+        0 0 20px #ff4f9a,
+        0 0 40px #8A2BE2;
+    }
+
+}
+/* ============================= */
+/* Next Button */
+/* ============================= */
+
+/* ============================= */
+/* Next Button */
+/* ============================= */
+
+.next-button{
+
+    display:none;
+
+    position:fixed;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    padding:18px 55px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:linear-gradient(45deg,#ff4f9a,#8A2BE2);
+
+    color:#fff;
+
+    font-size:22px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    z-index:99999;
+
+    box-shadow:0 0 35px rgba(255,79,154,.5);
+
+}
+
+.next-button:hover{
+
+    transform:translate(-50%,-50%) scale(1.08);
+
+    box-shadow:0 0 40px #ff4f9a;
+
+}
+/* ============================= */
+/* Glow Animation */
+/* ============================= */
+
+.glow{
+    animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+
+    from{
+        text-shadow:0 0 10px #ff4f9a;
+    }
+
+    to{
+        text-shadow:
+        0 0 20px #ff4f9a,
+        0 0 40px #8A2BE2;
+    }
+
+}
+
+/* ============================= */
+/* Ripple Effect */
+/* ============================= */
+
+.ripple{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    transform:scale(0);
+
+    background:rgba(255,255,255,.35);
+
+    animation:ripple .6s linear;
+
+    pointer-events:none;
+
+}
+
+button{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+@keyframes ripple{
+
+    to{
+
+        transform:scale(4);
+
+        opacity:0;
+
+    }
+
+}
