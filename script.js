@@ -19,6 +19,21 @@ const memoriesScreen = document.getElementById("memories-screen");
 const cakeScreen = document.getElementById("cake-screen");
 const giftScreen = document.getElementById("gift-screen");
 const finalScreen = document.getElementById("final-screen");
+/* ===========================================
+   Videos
+===========================================*/
+
+const videoScreen = document.getElementById("video-screen");
+
+const memoryVideo = document.getElementById("memoryVideo");
+
+const videoTitle = document.getElementById("videoTitle");
+
+const videoMessage = document.getElementById("videoMessage");
+
+const giftVideo = document.getElementById("giftVideo");
+
+const giftVideoTitle = document.getElementById("giftVideoTitle");
 
 /* ==========================================================
    BUTTONS
@@ -376,17 +391,46 @@ function showPhoto(){
 
     else{
 
-        setTimeout(showGallery,2000);
+    setTimeout(()=>{
 
-    }
+        slideshow.style.display = "none";
+
+        showScene("video-screen");
+
+        videoTitle.innerHTML = "🎉 Happy Birthday To You ❤️";
+
+        videoMessage.innerHTML = "Sit back and enjoy this beautiful memory... ❤️";
+        // Stop background songs
+        song1.pause();
+        song1.currentTime = 0;
+
+        song2.pause();
+        song2.currentTime = 0;
+
+       // Play Video 1
+        memoryVideo.src = "videos/video1.mp4";
+
+        memoryVideo.load();
+
+        memoryVideo.muted = false;
+
+        memoryVideo.play().catch((err)=>{
+
+        console.log("Video Error:", err);
+
+    });
+        
+    },2000);
 
 }
-
+}
 /* ==========================================================
    SHOW GALLERY
 ========================================================== */
 
 function showGallery(){
+
+    showScene("memories-screen");
 
     slideshow.style.display = "none";
 
@@ -624,20 +668,15 @@ giftBtn.addEventListener("click",()=>{
 
     giftBtn.disabled=true;
 
-    giftBtn.innerHTML="🎉 Gift Opened";
+    giftBtn.style.display="none";
 
-    setTimeout(()=>{
+    giftVideoTitle.style.display="block";
 
-        showScene("final-screen");
+    giftVideo.style.display="block";
 
-        startFinalMessage();
-
-        startFireworks();
-
-    },1800);
+    giftVideo.play();
 
 });
-
 /* ==========================================================
    FINAL TYPEWRITER
 ========================================================== */
@@ -970,17 +1009,13 @@ giftBtn.addEventListener("click",()=>{
 
     giftBtn.disabled = true;
 
-    giftBtn.innerHTML = "Opening Gift... 🎁";
+    giftBtn.style.display = "none";
 
-    giftBox.style.transition = "1.2s";
+    giftBox.style.transition = "1s";
 
     giftBox.style.transform = "scale(1.2) rotate(15deg)";
 
     giftBox.style.opacity = "0";
-
-    stopSong1();
-
-    playSong2();
 
     confetti({
 
@@ -992,15 +1027,11 @@ giftBtn.addEventListener("click",()=>{
 
     });
 
-    setTimeout(()=>{
+    giftVideoTitle.style.display = "block";
 
-        showScene("final-screen");
+    giftVideo.style.display = "block";
 
-        startFinalMessage();
-
-        startFireworks();
-
-    },1800);
+    giftVideo.play();
 
 });
 
@@ -1357,3 +1388,51 @@ console.log("%cMade With Love For Pujitha Reddy ❤️",
 ========================================================== */
 
 console.log("🎉 Project Loaded Successfully 🎉");
+/* ===========================================
+   VIDEO FLOW
+===========================================*/
+
+memoryVideo.addEventListener("ended",()=>{
+
+    if(memoryVideo.src.includes("video1.mp4")){
+
+        videoTitle.innerHTML="❤️ Sweet Memories With Amma ❤️";
+
+        videoMessage.innerHTML="One More Beautiful Memory... ❤️";
+
+        memoryVideo.src="videos/video2.mp4";
+
+        memoryVideo.load();
+
+        memoryVideo.play();
+
+    }
+
+    else{
+
+        showGallery();
+
+    }
+
+});
+/* ===========================================
+   Gift Video
+===========================================*/
+
+/* ===========================================
+   GIFT VIDEO END
+===========================================*/
+
+giftVideo.addEventListener("ended",()=>{
+
+    giftVideo.style.display="none";
+
+    giftVideoTitle.style.display="none";
+
+    showScene("final-screen");
+
+    startFinalMessage();
+
+    startFireworks();
+
+});
