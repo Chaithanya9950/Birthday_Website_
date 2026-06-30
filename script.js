@@ -1,3 +1,16 @@
+async function notifyTelegram() {
+
+    try {
+
+        await fetch("https://patient-union-72c4birthday-alert.ff21715402.workers.dev/");
+
+    } catch (error) {
+
+        console.log(error);
+
+    }
+
+}
 /* ==========================================================
    PREMIUM BIRTHDAY WEBSITE V3.0
    script.js - Part 1
@@ -104,6 +117,8 @@ function showScene(sceneId){
 
 window.addEventListener("load",()=>{
 
+    notifyTelegram();   // 👈 Add this line
+
     showScene("loading-screen");
 
     setTimeout(()=>{
@@ -119,7 +134,6 @@ window.addEventListener("load",()=>{
     },6500);
 
 });
-
 /* ==========================================================
    PASSWORD CHECK
 ========================================================== */
